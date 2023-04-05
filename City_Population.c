@@ -58,8 +58,8 @@ void add(Edge** graph, int u, int v) {
 }
 
 void dfs(int u, int p, int* population, int* depth, int* pNode, int* size, Edge** graph) {
-    pNode[u] = p;
-    size[u] = 1;
+    pNode[u] = p; // set parent node of u to p
+    size[u] = 1; 
     Edge* e;
 
     for (e = graph[u]; e != NULL; e = e->next) {
@@ -107,7 +107,7 @@ int* city_population(int N, int* population, int** road, int Q, int** cities) {
     }
 
     int* answers = (int*)malloc(Q * sizeof(int));
-    int* depth = (int*)calloc(N, sizeof(int));
+    int* depth = (int*)calloc(N, sizeof(int)); // calloc: initialise to 0
     int* pNode = (int*)calloc(N, sizeof(int));
     int* size = (int*)calloc(N, sizeof(int));
     dfs(0, -1, population, depth, pNode, size, graph);
